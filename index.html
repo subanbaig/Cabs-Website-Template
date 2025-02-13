@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- meta -->
+    <meta name="description"
+        content="Taxis is a reliable taxi and cab service for all station and airport transfers. We provide minicabs in at a cheap fare.">
+    <meta name="keywords" content="Taxi in London,London Minicabs">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/form.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+    <title>Template</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Airport
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Heathrow</a>
+                            <a class="dropdown-item" href="#">Gatwick</a>
+                            <a class="dropdown-item" href="#">London City</a>
+                            <a class="dropdown-item" href="#">Luton</a>
+                            <a class="dropdown-item" href="#">Stansted</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Station
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">King's Cross</a>
+                            <a class="dropdown-item" href="#">Euston</a>
+                            <a class="dropdown-item" href="#">London Bridge</a>
+                            <a class="dropdown-item" href="#">Charing Cross</a>
+                            <a class="dropdown-item" href="#">Waterloo</a>
+                            <a class="dropdown-item" href="#">Victoria</a>
+                            <a class="dropdown-item" href="#">Paddington</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Hotel Transfer</a>
+                            <a class="dropdown-item" href="#">Pet Taxis</a>
+                            <a class="dropdown-item" href="#">School Run</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contant</a>
+                    </li>
+                </ul>
+            </div>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="tel:">
+                    <img src="assets/images/call-btn.webp" alt="">
+                </a>
+                <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button> -->
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Title  -->
+        <section class="hero py-0 py-sm-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-2">
+                        <h1>Title Goes Here</h1>
+                        <p>Slogan Goes Here</p>
+                        <p class="hide">Hide In Mobile</p>
+                    </div>
+                    <!-- Form  -->
+                    <div class="col-12 form">
+                        <div class="bannerForm ">
+                            <div class="bannerFormBody">
+                                <div class="">
+                                    <div class="row m-0">
+                                        <div class="col-lg-5 col-md-6 col-12 order-lg-1">
+                                            <div class="field field-a cusField">
+                                                <select title="Pickup" id="pickup"
+                                                    class="ui-autocomplete-input my-input" name="name"
+                                                    autocomplete="off"></select>
+                                                <div class="dropdown airportList" id="dropdown1">
+                                                    <button class="btn btn-default airportListModal" type="button"
+                                                        id="dropdownMenu1" data-toggle="modal"
+                                                        data-target="#airportListModal1">
+                                                        <img loading="lazy" src="assets/images/aeroplane.png"
+                                                            alt="aeroplane">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 col-md-6 col-12 order-lg-5">
+                                            <div class="field my-field field-a">
+                                                <input id="book_pick_from_doorno" type="text" name="name"
+                                                    placeholder="Door No. For Pick Up" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-12 col-12 order-lg-2">
+                                            <div class="field-mini field-a" data-toggle="modal"
+                                                data-target="#myModalvias">
+                                                <input id="via" type="text" name="name" placeholder="Via (Optional)"
+                                                    disabled="">
+                                                <button>
+                                                    <img loading="lazy" class="form-icon" src="./assets/images/plus.png"
+                                                        alt="plus-icon" width="25" height="25">
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 col-md-6 col-12 order-lg-3">
+                                            <div class="field field-a cusField">
+                                                <select title="Drop" id="dropof" class="ui-autocomplete-input my-input"
+                                                    name="name" autocomplete="off"></select>
+                                                <div class="dropdown airportList" id="dropdown2">
+                                                    <button class="btn btn-default airportListModal" type="button"
+                                                        id="dropdownMenu2" data-toggle="modal"
+                                                        data-target="#airportListModal2">
+                                                        <img loading="lazy" src="assets/images/aeroplane.png"
+                                                            alt="aeroplane">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-12 order-lg-6" id="tablet">
+                                            <!-- <div class="field field-a">
+                                                <input id="book_pick_to_doorno" type="text" name="name"
+                                                    placeholder="Door No. For Drop Off" autocomplete="off">
+                                            </div> -->
+                                        </div>
+                                        <div class="col-lg-5 col-md-6 col-12 order-lg-7">
+                                            <div class="field field-a">
+                                                <input id="book_pick_to_doorno" type="text" name="name"
+                                                    placeholder="Door No. For Drop Off" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-6 order-lg-8">
+                                            <div class="datefield field-a">
+                                                <input title="Pickup Date" id="book_pick_date" type="date"
+                                                    name="date-1">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-6 order-lg-7">
+                                            <div class="timefield field-a">
+                                                <input title="Pickup Time" id="book_pick_time" type="Time" name="appt">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4 col-6 order-lg-9">
+                                            <div class="field-mini mini2 field-a cusSelect">
+                                                <button>
+                                                    <img loading="lazy" src="./assets/images/people.png"
+                                                        alt="people-icon" width="24" height="24">
+                                                </button>
+                                                <select title="Passenger" id="Passenger">
+                                                    <option selected="" value="1">1 Passenger</option>
+                                                    <script>
+                                                        for (var i = 2; i <= 200; i++) {
+                                                            document.write("<option value=" + i + ">" + i + " Passengers</option>");
+                                                        }
+                                                    </script>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 col-6 order-lg-10">
+                                            <div class="field-mini mini2 itemfield field-a">
+                                                <button>
+                                                    <img loading="lazy" src="assets/images/luggage.png"
+                                                        alt="luggage-icon" width="24" height="24">
+                                                </button>
+                                                <input type="text" name="name" placeholder="Add Items"
+                                                    autocomplete="off" data-toggle="modal" data-target="#moreModalitem"
+                                                    readonly="readonly">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 col-12 order-lg-11">
+                                            <div class="selectfield field-a cusSelect">
+                                                <select title="Journey Type" id="journeytype"
+                                                    onchange="iswaitnreturn(this)">
+                                                    <option>Single Trip</option>
+                                                    <option value="WR">Wait and Return</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 cus-hold-able-wrapper">
+                                            <div class="hold-able">
+                                                <div id="holdabledata" class="row justify-content-center">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-12 m-auto order-lg-12">
+                                            <div class="submitbtn">
+                                                <button id="get-quotes" class="btnStyle">Get Quotes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+
+        <!-- Content -->
+        <section class="content py-3 py-sm-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2>Lorem</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolorem, dicta autem
+                            itaque porro dignissimos eligendi labore delectus facilis similique animi reiciendis nihil,
+                            veniam aliquid hic nobis aut adipisci fugiat praesentium perferendis numquam culpa sequi.
+                            Expedita officiis pariatur, in, dolorem placeat repudiandae magnam iusto corporis aliquid
+                            facere, id dicta fugiat iure maiores deleniti earum fugit cumque laborum esse itaque
+                            veritatis dolorum! Rerum quas officia ipsam perspiciatis. Culpa eum saepe provident nemo
+                            excepturi incidunt iure accusantium quisquam, repellat eaque perspiciatis quod quos
+                            reiciendis fuga fugiat, quo porro ipsum. Maxime quaerat magni a excepturi natus ad cum quam
+                            sint atque harum fugit obcaecati necessitatibus non est eaque cupiditate, dolore quisquam
+                            nisi aliquid deserunt commodi! Quis tenetur libero reprehenderit dicta? Ducimus eligendi
+                            ipsa impedit quis veritatis. Dolore commodi voluptatum nobis quas. Nesciunt, maxime ipsam,
+                            cupiditate impedit, velit recusandae magni modi unde repellat est neque corporis quae. Odit
+                            sapiente, consectetur reprehenderit voluptate eum tempora accusantium aut, id ipsa a
+                            perferendis, ut voluptatum laboriosam hic! Nam error impedit doloribus itaque dignissimos
+                            provident fugit voluptates dolorum vero, nulla ratione culpa molestias numquam, veniam
+                            quibusdam. Labore impedit sunt facilis est repudiandae architecto, quae eum. Enim iusto
+                            eaque natus itaque ad commodi deleniti praesentium dolorum, laudantium, atque aperiam!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="services">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Our Services</h2>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <a href="#!">
+                                <div class="service-card">
+                                    <img loading="lazy" src="assets/images/hotel.webp" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Hotel Transfer</h3>
+                                    </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <a href="#!">
+                            <div class="service-card">
+                                <img loading="lazy" src="assets/images/pet.webp" class="img-fluid" alt="...">
+                                <div class="card-body">
+                                    <h3 class="card-title">Pet Taxis</h3>
+                                </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <a href="#!">
+                        <div class="service-card">
+                            <img loading="lazy" src="assets/images/school.webp" class="img-fluid" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title">School Run</h3>
+                            </div>
+                    </a>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Airprot -->
+        <section class="airport py-5">
+            <h2>Airport Transfer</h2>
+            <div class="container slider-container">
+                <div class="slider">
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/airport.png" alt="Item 1">
+                            <p>HEATHROW</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/airport-1.png" alt="Item 2">
+                            <p>GATWICK</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/airport-3.png" alt="Item 4">
+                            <p>LUTON</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/airport-4.png" alt="Item 5">
+                            <p>LONDON CITY</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/airport-2.png" alt="Item 3">
+                            <p>STANSTED</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLeet -->
+        <section class="services-sec sec-pad" id="service">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3 class="contact-hd">FEATURED CARS</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-6 col-md-6 hover-box">
+                        <div class="service-box">
+                            <div class="service-car">
+                                <img loading="lazy" src="assets/images/saloon.webp" loading="lazy" alt="">
+                                <h4>Saloon Car</h4>
+                            </div>
+                            <div class="service-info">
+                                <div class="luggage">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><img loading="lazy" class="pb-ic"
+                                                src="assets/images/user.png" loading="lazy" alt=""> 4 Persons</li>
+                                        <li class="list-inline-item"><img loading="lazy" class="pb-ic"
+                                                src="assets/images/briefcase.png" loading="lazy" alt=""> 2 Bags</li>
+                                        <li class="list-inline-item"><img loading="lazy"
+                                                src="assets/images/luggages.png" width="25px" loading="lazy" alt=""> 2
+                                            luggage</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-6 col-md-6 hover-box">
+                        <div class="service-box service-box2">
+                            <div class="service-car">
+                                <img loading="lazy" src="assets/images/estate.webp" loading="lazy" alt="">
+                                <h4>Estate Car</h4>
+                            </div>
+                            <div class="service-info">
+                                <div class="luggage">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><img loading="lazy" class="pb-ic"
+                                                src="assets/images/user.png" loading="lazy" alt=""> 4 Persons</li>
+                                        <li class="list-inline-item"><img loading="lazy" class="pb-ic"
+                                                src="assets/images/briefcase.png" loading="lazy" alt=""> 2 Bags</li>
+                                        <li class="list-inline-item"><img loading="lazy"
+                                                src="assets/images/luggages.png" width="25px" loading="lazy" alt=""> 3
+                                            luggage</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-6 col-md-6 hover-box">
+                        <div class="service-box">
+                            <div class="service-car">
+                                <img loading="lazy" src="assets/images/mpv.webp" loading="lazy" alt="">
+                                <h4>MPV</h4>
+                            </div>
+                            <div class="service-info">
+                                <div class="luggage">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><img loading="lazy" class="pb-ic"
+                                                src="assets/images/user.png" loading="lazy" alt=""> 5 Persons</li>
+                                        <li class="list-inline-item"><img loading="lazy" class="pb-ic"
+                                                src="assets/images/briefcase.png" loading="lazy" alt=""> 4 Bags</li>
+                                        <li class="list-inline-item"><img loading="lazy"
+                                                src="assets/images/luggages.png" width="25px" loading="lazy" alt=""> 4
+                                            luggage</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-6 col-md-6 hover-box">
+                        <div class="service-box service-box2">
+                            <div class="service-car">
+                                <img loading="lazy" src="assets/images/executive.webp" loading="lazy" alt="">
+                                <h4>Executive Car</h4>
+                            </div>
+                            <div class="service-info">
+                                <div class="luggage">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><img loading="lazy" class="pb-ic"
+                                                src="assets/images/user.png" loading="lazy" alt=""> 4 Persons</li>
+                                        <li class="list-inline-item"><img loading="lazy" class="pb-ic"
+                                                src="assets/images/briefcase.png" loading="lazy" alt=""> 2 Bags</li>
+                                        <li class="list-inline-item"><img loading="lazy"
+                                                src="assets/images/luggages.png" width="25px" loading="lazy" alt=""> 3
+                                            luggage</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Station -->
+        <section class="station py-5">
+            <h2>Station Transfer</h2>
+            <div class="container slider-container">
+                <div class="slider">
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/station.png" alt="Item 1">
+                            <p>KING'S CROSS</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/station-1.png" alt="Item 2">
+                            <p>EUSTON</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/station-2.png" alt="Item 3">
+                            <p>PADDINGTON</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/station-3.png" alt="Item 4">
+                            <p>CHARING CROSS</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/station-4.png" alt="Item 5">
+                            <p>LONDON BRIDGE</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/station-5.png" alt="Item 5">
+                            <p>WATERLOO</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#!">
+                            <img loading="lazy" src="assets/images/station-6.png" alt="Item 5">
+                            <p>VICTORIA</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Sec -->
+        <section class="ourApp pb-0 pt-5 py-sm-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 app">
+                        <h4>Download Our App</h4>
+                        <p>We are a Cab Facilitator, connecting the passengers with the licenced Minicab and Taxi
+                            service providers in the UK, with best interests of both parties.</p>
+                        <ul class="list">
+                            <li class="list-item">
+                                <a aria-label="play store" href="https://apps.apple.com/us/app/ydriv/id1474939369"
+                                    target="_blank">
+                                    <img loading="lazy" src="assets/images/apple.svg" alt="" class="img-fluid">
+                                </a>
+                            </li>
+                            <li class="list-item">
+                                <a aria-label="play store"
+                                    href="https://play.google.com/store/apps/details?id=buzybeez.com.buzybeezcabydriv"
+                                    target="_blank">
+                                    <img loading="lazy" src="assets/images/google.svg" alt="" class="img-fluid">
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="col-sm-6 app">
+                        <img loading="lazy" src="assets/images/sec-app.webp" alt="Section App" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>Copyright © All rights reserved
+                            <script>document.write(new Date().getFullYear());</script> |
+                            <a href="">Privacy Policy</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Modals  -->
+    <div class="customModals">
+        <div class="modal fade airportlistModalCustom" id="airportListModal1" tabindex="-1" role="dialog"
+            aria-labelledby="airportListModal" aria-hidden="true" style="padding:0px">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Airports</h2>
+                        <button type="button" class="close close-luggage" data-dismiss="modal">
+                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="airportNames">
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 1 | TW6 1AP"
+                                data-dismiss="modal">HEATHROW TERMINAL 1</button>
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 2 | TW6 1EW"
+                                data-dismiss="modal">HEATHROW TERMINAL 2</button>
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 3 | TW6 1QG"
+                                data-dismiss="modal">HEATHROW TERMINAL 3</button>
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 4 | TW6 3XA"
+                                data-dismiss="modal">HEATHROW TERMINAL 4</button>
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 5 | TW6 2GA"
+                                data-dismiss="modal">HEATHROW TERMINAL 5</button>
+                            <button class="btn airportBtn" data-value="LONDON GATWICK AIRPORT NORTH TERMINAL | RH6 0PJ"
+                                data-dismiss="modal">GATWICK NORTH TERMINAL</button>
+                            <button class="btn airportBtn" data-value="LONDON GATWICK AIRPORT SOUTH TERMINAL  | RH6 0NP"
+                                data-dismiss="modal">GATWICK SOUTH TERMINAL</button>
+                            <button class="btn airportBtn" data-value="LONDON CITY AIRPORT | E16 2PX"
+                                data-dismiss="modal">LONDON CITY</button>
+                            <button class="btn airportBtn" data-value="LONDON STANSTED AIRPORT | CM24 1RW"
+                                data-dismiss="modal">STANSTED</button>
+                            <button class="btn airportBtn" data-value="LONDON LUTON AIRPORT | LU2 9QT"
+                                data-dismiss="modal">LUTON</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer py-1">
+                        <button type="button" class="btn custom-btn-2 close-luggage" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade airportlistModalCustom" id="airportListModal2" tabindex="-1" role="dialog"
+            aria-labelledby="airportListModal" aria-hidden="true" style="padding:0px">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Airports</h2>
+                        <button type="button" class="close close-luggage" data-dismiss="modal">
+                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="airportNames">
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 1 | TW6 1AP"
+                                data-dismiss="modal">HEATHROW TERMINAL 1</button>
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 2 | TW6 1EW"
+                                data-dismiss="modal">HEATHROW TERMINAL 2</button>
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 3 | TW6 1QG"
+                                data-dismiss="modal">HEATHROW TERMINAL 3</button>
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 4 | TW6 3XA"
+                                data-dismiss="modal">HEATHROW TERMINAL 4</button>
+                            <button class="btn airportBtn" data-value="LONDON HEATHROW AIRPORT TERMINAL 5 | TW6 2GA"
+                                data-dismiss="modal">HEATHROW TERMINAL 5</button>
+                            <button class="btn airportBtn" data-value="LONDON GATWICK AIRPORT NORTH TERMINAL | RH6 0PJ"
+                                data-dismiss="modal">GATWICK NORTH TERMINAL</button>
+                            <button class="btn airportBtn" data-value="LONDON GATWICK AIRPORT SOUTH TERMINAL  | RH6 0NP"
+                                data-dismiss="modal">GATWICK SOUTH TERMINAL</button>
+                            <button class="btn airportBtn" data-value="LONDON CITY AIRPORT | E16 2PX"
+                                data-dismiss="modal">LONDON CITY</button>
+                            <button class="btn airportBtn" data-value="LONDON STANSTED AIRPORT | CM24 1RW"
+                                data-dismiss="modal">STANSTED</button>
+                            <button class="btn airportBtn" data-value="LONDON LUTON AIRPORT | LU2 9QT"
+                                data-dismiss="modal">LUTON</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer py-1">
+                        <button type="button" class="btn custom-btn-2 close-luggage" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- Modal -->
+        <div class="modal fade " id="myModalvias" tabindex="-1" role="dialog" aria-labelledby="myModalvias"
+            data-backdrop="static" data-keyboard="false" aria-hidden="true" style="padding:0px">
+            <div class="modal-dialog " style="display: flex;justify-content: center;align-items: center;height: 100%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Add Vias</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table custom-tables">
+                            <tbody id="via-list"></tbody>
+                        </table>
+                        <button id="add-via" type="button" class="btn custom-btn-2" style="font-weight: bold;">Add
+                            another
+                            via</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="updateVia" type="button" class="btn custom-btn-2 btn-default"
+                            data-dismiss="modal">save</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+
+
+
+
+
+        <!-- item modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModalitem" tabindex="-1" role="dialog" aria-labelledby="myModalitem"
+            aria-hidden="true" style="padding:0px">
+            <div class="modal-dialog times-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 col-6 mb-md-0 mb-3">
+                                <label class="wait-label" for="minwaittime">Waiting Time: </label>
+                            </div>
+
+                            <div class="col-md-5 col-6 mb-md-0 mb-3">
+                                <div class="input-group mb-0">
+                                    <input id="minwaittime" class="form-control h-auto" type="number" min="1" max="60"
+                                        value="1">
+
+                                    <div class="input-group-addon">
+                                        <span class="input-group-text bg-dark text-white">
+                                            <label> minutes</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-5">
+                                <button class="btn custom-btn-2 w-100" onclick="savewaitnreturn();"
+                                    style="padding-top: 10px !important; padding-bottom: 10px !important;">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <!-- item modal -->
+
+
+
+
+
+        <!-- More item modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="moreModalitem" tabindex="-1" role="dialog" aria-labelledby="moreModalitem"
+            aria-hidden="true" style="padding:0px">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 390px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Select More Items</h2>
+                        <button type="button" class="close close-luggage" data-dismiss="modal">
+                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="accordion" id="accordionExample" role="tablist" aria-multiselectable="true">
+                            <div class="spinner-border m-auto" role="status" id="sploader" style="display: none;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer py-1">
+                        <button type="button" class="btn custom-btn-2 close-luggage" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+
+
+        <div class="modal fade" id="itemcount" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm"
+                style="display: flex;justify-content: center;align-items: center;height: 100%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Enter Quantity</h2>
+                        <button type="button" class="close close-luggage" data-dismiss="modal">
+                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <label for="numbermoreitm" style="display: none;">Luggage</label>
+                        <input type="hidden" id="nameid" value="">
+                        <input type="number" max="99" min="1" onkeydown="if(event.key==='.'){event.preventDefault();}"
+                            value="1" class="form-control custom-inputs" id="numbermoreitm">
+
+                    </div>
+                    <div class="modal-footer py-1">
+                        <button type="button" class="btn custom-btn-2 close-luggage"
+                            onclick="additem($('#nameid').val(),$('#numbermoreitm').val())"
+                            data-dismiss="modal">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- loader -->
+        <div class="loading-div">
+            <div class="inner-loading-div">
+                <div class="loading-imgs-div mx-auto">
+                    <div class="loaderAnimateWrap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Tags -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="assets/js/form.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#sploader").css("display", "block");
+            var APIURL = "https://stationcarslondon.com/api/ItemsAPI/GetItems";
+            //  var APIURL="https://localhost:44329/api/ItemsAPI/GetItems";
+            // var markup=[
+            //     {
+            //     "ItemName":"Luggage1","LineItems":["Laptop1","Pen 1"]}
+            //     ,{"ItemName":"Luggage2","LineItems":["Laptop2","Pen2"]}];
+            var markup;
+            $.get(APIURL, function (response) {
+
+                markup = response.data;
+
+                $("#person-template").tmpl({ people: JSON.parse(JSON.stringify(markup)) }).appendTo("#accordionExample");
+                // $.tmpl( $('#person-template'),JSON.parse(JSON.stringify(markup))).appendTo('#accordionExample');
+                $.each(markup, function (index, value) {
+
+                });
+                $("#sploader").css("display", "none")
+            });
+
+        });
+
+    </script>
+
+    <script type="text/html" id="person-template">
+           {{each(i, person) people}}
+       <div class="card">
+           <div class="card-header" role="tab" id="heading${i}">
+               <h3 class="luggage-headings">
+                   <button class="btn collapsed luggage-btns" type="button" data-toggle="collapse"
+                       data-target="#collapse${i}" aria-expanded="false"
+                       aria-controls="collapse${i}">
+                     ${ itemname }
+                   </button>
+               </h3>
+           </div>
+           <div id="collapse${i}" class="collapse" data-parent="#accordionExample"
+               aria-labelledby="heading${i}">
+               <div class="card-body">
+                  
+             
+             {{each(i) itemsubchild}}
+             <button type="button" data-idss="${i}" luggagetype="${itemsubchild[i].type}" class="btn luggage-items-btn"
+             onclick="addvalue(this)">${itemsubchild[i].name}</button>
+             {{/each}}
+             
+               </div>
+           </div>
+       </div>
+       {{/each}}
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            console.log("run")
+
+            $.ajax({
+
+
+                url: "https://stationcarslondon.com/api/VisitWeb?" + jQuery.param({ weburl: "https://croydontaxiscabs.co.uk", webname: "Croydon Taxis Cabs", officeCode: "TNW", officeNumber: "02038130254" }),
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                }
+            });
+        })
+    </script>
+
+</body>
+
+</html>
