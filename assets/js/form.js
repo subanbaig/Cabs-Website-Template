@@ -3,7 +3,7 @@ $(document).ready(function () {
     source: function (e, t) {
       $.ajax({
         type: "GET",
-        url: "https://booking.taxisnetwork.com/Home/Indextwo",
+        url: "https://booking.londontaxi247.co.uk/Home/Indextwo",
         dataType: "json",
         data: { Prefix: e.term },
         success: function (e) {
@@ -21,7 +21,7 @@ $(document).ready(function () {
       source: function (e, t) {
         $.ajax({
           type: "GET",
-          url: "https://booking.taxisnetwork.com/Home/Indextwo",
+          url: "https://booking.londontaxi247.co.uk/Home/Indextwo",
           dataType: "json",
           data: { Prefix: e.term },
           success: function (e) {
@@ -37,116 +37,133 @@ $(document).ready(function () {
     });
 });
 
-ADDVIA();
+// ADDVIA();
 
 var count = 0;
 var via_list = $("#via-list");
-function ADDVIA() {
-  $("#add-via").click(function () {
-    for (var j = 0; j <= count; j++) {
-      var add_via =
-        '<tr id="tb_' +
-        count +
-        '"><td class="via-labels" id="lbl_' +
-        count +
-        '">Via #' +
-        (count + 1) +
-        ":</td>" +
-        '<td><input id="Via' +
-        count +
-        '" class="form-control viadata custom-via-input" type="text" placeholder="Enter a Location" style="font-size: 15px;"></td>' +
-        '<td><span id="dlt-via_' +
-        count +
-        '" onclick="dlt_via(this)" style="font-size: 15px;font-weight: bold;cursor: pointer;">X</span></td></tr>';
-    }
-    if (count < 7) {
-      $(via_list).append(add_via);
-      if (count == 6) {
+let originalFields = [];
+let tempFields = [];
+const maxFields = 7;
+let validAddresses = [];
+
+$("#cusVias").click(function () {
+    tempFields = [...originalFields];
+    renderFields();
+    $("#myModalvias").show();
+});
+
+function renderFields() {
+    $(via_list).html("");
+    tempFields.forEach((value, index) => {
+        $(via_list).append(`
+            <div class="field">
+                <span class="error-message" id="emptyError-${index}">This field cannot be empty.</span>
+                <span class="error-message" id="invalidError-${index}">Invalid value. Please select from the list.</span>
+                <input value="${value}" data-index="${index}" class="fieldInput form-control viadata custom-via-input ui-autocomplete-input" type="text" placeholder="Enter a Location" autocomplete="off">
+                <div class="inputListLoader">
+                    <div class="inputListLoaderInner"></div>
+                </div>
+                <button class="removeField" data-index="${index}">X</button>
+            </div>
+        `);
+    });
+    toggleAddButton();
+    applyAutocomplete();
+}
+
+function toggleAddButton() {
+    if (tempFields.length >= maxFields) {
         $("#add-via").hide();
-      }
-      //=================vias inputs==================
-      var autovia = "#Via" + count;
-      $(autovia).autocomplete({
-        source: function (request, response) {
-          $.ajax({
-            type: "GET",
-            // url: auto_cmplt_url,
-            url: "https://booking.taxisnetwork.com/Home/Indextwo",
-            dataType: "json",
-            data: { Prefix: request.term },
-            success: function (data) {
-              //  var a = data.list;
+    } else {
+        $("#add-via").show();
+    }
+}
 
-              response(
-                $.map(data.list, function (item) {
-                  return { label: item.address, value: item.address };
-                })
-              );
+function applyAutocomplete() {
+    $(".fieldInput").each(function() {
+        const listLoader = $(this).next('.inputListLoader');
+        
+        $(this).autocomplete({
+            source: function (request, response) {
+                listLoader.show();
+                $.ajax({
+                    type: "GET",
+                    url: "https://booking.taxisnetwork.com/Home/Indextwo",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        let liveResults = data.list.map(item => item.address);
+                        let combinedResults = [...new Set([...validAddresses, ...liveResults])];
+                        let filteredResults = combinedResults.filter(addr => addr.toLowerCase().includes(request.term.toLowerCase()));
+                        validAddresses = combinedResults;
+                        response(filteredResults.map(address => ({ label: address, value: address })));
+                    },
+                    complete: function () {
+                        listLoader.hide();
+                    }
+                });
             },
-          });
-        },
-        select: function (event, ui) {
-          var value = ui.item.value;
-          $(autovia).val(value);
-          document.activeElement.blur();
-          return false;
-        },
-      });
-    }
-    count++;
-  });
+            select: function(event, ui) {
+                let index = $(this).data("index");
+                tempFields[index] = ui.item.value;
+                $(this).val(ui.item.value);
+                $(this).blur();
+                $(`#emptyError-${index}`).hide();
+                $(`#invalidError-${index}`).hide();
+                return false;
+            }
+        });
+
+        
+    });
 }
 
-var arr = new Array(6);
-var valuesArray = [];
-function dlt_via(x) {
-  count--;
-  if (count < 7) {
-    $("#add-via").show();
-  }
-  var id = x.id;
-  var res = id.split("_");
-  var strt = parseInt(res[1]);
-  for (var k = strt; k <= count; k++) {
-    var a = k;
-    var str = document.getElementById("Via" + a).value;
-    arr.splice(a, 1, str);
-    document.getElementById("tb_" + a).remove();
-  }
+$(document).on("click", ".removeField", function () {
+    let index = $(this).data("index");
+    tempFields.splice(index, 1);
+    renderFields();
+});
 
-  for (var i = strt; i < count; i++) {
-    var add_via =
-      '<tr id="tb_' +
-      i +
-      '"><td class="via-labels" id="lbl_' +
-      i +
-      '">Via #' +
-      (i + 1) +
-      ":</td>" +
-      '<td><input id="Via' +
-      i +
-      '" class="form-control custom-via-input" type="text" placeholder="Enter a Location" value="' +
-      arr[i + 1] +
-      '"></td>' +
-      '<td><span id="dlt-via_' +
-      i +
-      '" onclick="dlt_via(this)" style="font-size: 15px;font-weight: bold;cursor: pointer;">X</span></td></tr>';
-    $(via_list).append(add_via);
-  }
-}
-
-document.getElementById("updateVia").onclick = function () {
-  valuesArray.length = 0;
-
-  for (var a = 0; a <= count - 1; a++) {
-    var viaValue = document.getElementById("Via" + a).value;
-    if (viaValue != "") {
-      valuesArray.push(viaValue);
+$("#add-via").click(function () {
+    if (tempFields.length < maxFields) {
+        tempFields.push("");
+        renderFields();
     }
-  }
+});
 
-  document.getElementById("via").value = valuesArray.length + " Vias";
-};
+
+$(document).on("input", ".fieldInput", function () {
+    let index = $(this).data("index");
+    tempFields[index] = $(this).val();
+    $(`#emptyError-${index}`).hide();
+    $(`#invalidError-${index}`).hide();
+});
+
+$("#updateVia").click(function () {
+    let allValid = true;
+
+    tempFields.forEach((field, index) => {
+        let trimmedField = field.trim();
+
+        if (trimmedField === "") {
+            $(`#emptyError-${index}`).show();
+            allValid = false;
+        } else if (!validAddresses.some(addr => addr.toLowerCase() === trimmedField.toLowerCase())) {
+            $(`#invalidError-${index}`).show();
+            allValid = false;
+        }
+    });
+
+    if (allValid) {
+        originalFields = [...tempFields];
+        document.getElementById("via").value = originalFields.length + " Vias";
+        $('#myModalvias').modal('hide');
+    }
+});
+
+$('#cusCloseModal').on('hidden.bs.modal', function () {
+    $(".error-message").hide();
+});
 
 get_date_time_in_inputs();
 
@@ -240,126 +257,87 @@ function savewaitnreturn() {
 
 var accuserdb = "";
 
-function addvalue(e) {
-  var mytext = $(e).text();
-  var mytype = $(e).attr("luggagetype");
-  $("#number").val("");
-  $("#nameid").val(mytext);
-  $("#nametype").val(mytype);
-  if (accuserdb.includes(mytext)) {
-    var s = accuserdb.split(mytext)[0];
-    var ss = s.substr(s.length - 3).trim();
-    var ssss = ss[0];
-    $("#number").val(ssss);
-  }
-  $("#moreModalitem").modal("hide");
-  // $('body').toggleClass('body-overflow');
-  $("#itemcount").modal("show");
-}
-
-function removeitem(e) {
-  var arr = accuserdb.split(",");
-  var le = $(e).parent().parent().text().trim();
-  var ind = arr.indexOf(le);
-  arr.splice(ind, 1);
-  accuserdb = arr.join();
-  $(e).parent().parent().parent().remove();
-}
-
-function additem(e, val, type) {
-  var tempacc = [];
-  var text = e.trim();
-  var myid = text.replace(/\s/g, "");
-  myid = myid.replace(/[^\w\s]/gi, "");
-
-  if (accuserdb.includes(text)) {
-    if (accuserdb.includes(",") || accuserdb) {
-      var accuser = accuserdb.split(",");
-      accuser.forEach(function (item) {
-        if (item.includes(text)) {
-          item = item.substring(0, item.length - 1);
-          var increase = item.split("(");
-          increase.shift();
-          increase[0] = increase[0].trimStart();
-          increase = increase.join("(");
-          var new_item = parseInt(val);
-          tempacc.push(new_item + " (" + increase.trim() + ")");
-
-          var myidd = `id_${increase}`;
-          // $('#' + myidd).html(new_item + " (" + increase.trim() + ")" + `<a><i onclick="removeitem(this)" class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>`);
-
-          $("#" + myidd).html(
-            `<input class="form-control holddatainput" data-sendval="${new_item}@(${increase.trim()})" value="${new_item} (${increase.trim()})"  disabled data-type="${val} ${type}">` +
-              `<div class="input-group-addon">
+    function addvalue(e) {
+        var mytext = $(e).text();
+        var mytype = $(e).attr("luggagetype");
+        $('#number').val("");
+        $('#nameid').val(mytext);
+        $('#nametype').val(mytype);
+        if (accuserdb.includes(mytext)) {
+            var s = accuserdb.split(mytext)[0];
+            var ss = s.substr(s.length - 3).trim();
+            var ssss = ss[0];
+            $('#number').val(ssss);
+        }
+        $('#moreModalitem').modal('hide');
+        $('#itemcount').modal('show');
+    }
+    
+    function removeitem(e) {
+        var arr = accuserdb.split(',');
+        var le = $(e).parent().parent().text().trim();
+        var ind = arr.indexOf(le)
+        arr.splice(ind, 1);
+        accuserdb = arr.join();
+        $(e).parent().parent().parent().remove();
+    }
+    
+    
+    function additem(e, val, type) {
+        var text = e.trim();
+        var myid = text.replace(/\s/g, '').replace(/[^\w]/g, '');
+    
+        if (accuserdb.includes(text)) {
+            var accuser = accuserdb.split(",");
+            var tempacc = [];
+            accuser.forEach(function (item) {
+                if (item.includes(text)) {
+                    var newVal = parseInt(val);
+                    var newItem = `${newVal} ${text}`;
+                    tempacc.push(newItem);
+                    var myidd = `id_${myid}`;
+                    $(`#${myidd}`).html(`
+                        <input class="form-control holddatainput" data-sendval="${newVal}@${text}" value="${newItem}" disabled data-type="${val} ${type}">
+                        <div class="input-group-addon">
                             <button type="button" class="btn input-grp-btns" onclick="removeitem(this)">
                                 <img class="form-icons" src="assets/images/delete.png" alt="luggage delete" width="20">
                             </button>
-                        </div>`
-          );
-        } else {
-          tempacc.push(item);
+                        </div>`);
+                } else {
+                    tempacc.push(item);
+                }
+            });
+            accuserdb = tempacc.join(',');
+            return;
         }
-      });
-
-      accuserdb = tempacc.join();
-    } else {
-      console.log("More Items Not Working");
+        insertitem(text, val, type);
     }
-    return;
-  }
-
-  insertitem(text, val, type, e);
-}
-
-function insertitem(text, val, type, itemname) {
-  var tag;
-  var myid = text;
-  if (myid.includes("(")) {
-    var myidd = myid.split("(");
-    if (!isNaN(myidd[0]) && myidd[0]) {
-      val = myidd[0];
-      myidd.shift();
+    
+    function insertitem(text, val, type) {
+        var myid = text.replace(/\s/g, '').replace(/[^\w]/g, '');
+        var newItem = `${val} ${text}`;
+    
+        var tag = `
+            <div class="col-lg-3 col-md-4 col-xs-12">
+                <div id="id_${myid}" class="input-group mb-2" data-type="${val} ${type}">
+                    <input class="form-control holddatainput" data-sendval="${val}@${text}" value="${newItem}" disabled data-type="${val} ${type}">
+                    <div class="input-group-addon">
+                        <button type="button" class="btn input-grp-btns del-btn_" onclick="removeitem(this)">
+                            <img class="form-icons" src="assets/images/delete.png" alt="luggage delete" width="20">
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+    
+        if (!accuserdb.includes(newItem)) {
+            if (accuserdb) {
+                accuserdb += ",";
+            }
+            accuserdb += newItem;
+        }
+        console.log(accuserdb)
+        $('#holdabledata').append(tag);
     }
-
-    myid = myidd.join("(");
-    myid = myid.substring(0, myid.length - 1).trim();
-  }
-  var text2 = myid;
-
-  myid = myid.replace(/[^\w\s]/gi, "");
-  myid = myid.replace(/\s/g, "");
-
-  text = text.trim();
-  if (val) {
-    text = text2;
-
-    val = parseInt(val);
-
-    tag = `<div class="col-lg-4 col-md-4 col-xs-12 ">
-                    <div id="id_${itemname}" class="input-group mb-2 " data-type="${val} ${type}">
-                        <input class="form-control holddatainput"  data-sendval="${val}@(${text.trim()})" value="${val} (${text})" itemname="${itemname}"  disabled data-type="${val} ${type}">
-                        <div class="input-group-addon">
-                            <button type="button" class="btn input-grp-btns del-btn_" onclick="removeitem(this)">
-                                <img class="form-icons" src="assets/images/delete.png" alt="luggage delete" width="20">
-                            </button>
-                        </div>
-                    </div>  
-                </div>`;
-
-    if (!accuserdb.includes(val + " (" + text)) {
-      if (accuserdb) {
-        accuserdb += ",";
-      }
-      accuserdb += val + " (" + text + ")";
-    }
-  } else {
-    tag = `<div id="id_${itemname}" class="input-group mb-2" >
-                    <input class="form-control holddatainput" data-sendval="${new_item}@(${increase.trim()})" value="${val} (${text})" itemname="${itemname}" disabled data-type="${val} ${type}">
-                </div>`;
-  }
-
-  $("#holdabledata").append(tag);
-}
 
 $(".close-luggage").click(function () {
   if ($(".collapse").hasClass("in")) {
@@ -489,9 +467,9 @@ $(document).ready(function () {
     obj.push(hourstxt);
     obj.push(minutstxt);
     //-------------------ajax call--------------
-    var office_name = "TNW";
-    var office_details =
-      "TNW,Waltham Forest Minicabs Cars, https://walthamforestminicabscars.co.uk/, 02038834743";
+    var office_name = "LNT";
+    var color_code = "1a3a6d";
+    var office_details = "LNT,Cheap London Taxi,https://cheaplondontaxi.co.uk/,02037403527";
 
     // for (let j = 0; j < itemsValues.length; j++) {
     //    console.log(String(itemsValues[j]).replaceAll(' ',''));
@@ -514,12 +492,12 @@ $(document).ready(function () {
       $(".loading-div").css("display", "block");
       $(document.body).css("overflow", "hidden");
 
-      // window.location.href = "https://booking.taxisnetwork.com/OurVehicle/OurVehicle?luggage_text=" + inputsvalues + "&pickup=" + pickup + "&checkurl=" + true + "&dropoff=" + dropoff + "&office_details=" + office_details + "&luggageobject=" + obj + "&listviasaddress=" + listvias +"&tripFlag=" +TripFlag +"&mints="+WaitingMints;
+      // window.location.href = "https://booking.londontaxi247.co.uk/OurVehicle/OurVehicle?luggage_text=" + inputsvalues + "&pickup=" + pickup + "&checkurl=" + true + "&dropoff=" + dropoff + "&office_details=" + office_details + "&luggageobject=" + obj + "&listviasaddress=" + listvias +"&tripFlag=" +TripFlag +"&mints="+WaitingMints;
 
-      // window.location.href = "https://booking.taxisnetwork.com/OurVehicle/OurVehicle?luggage_text=" + inputsvalues + "&pickup=" + pickup + "&checkurl=" + true + "&dropoff=" + dropoff + "&office_details=" + office_details + "&luggageobject=" + obj + "&listviasaddress=" + listvias + "&tripFlag=" + TripFlag + "&mints=" + WaitingMints + "&fromDoorNumber=" + frmDrNmbr + "&toDoorNumber=" + toDrNmbr;
+      // window.location.href = "https://booking.londontaxi247.co.uk/OurVehicle/OurVehicle?luggage_text=" + inputsvalues + "&pickup=" + pickup + "&checkurl=" + true + "&dropoff=" + dropoff + "&office_details=" + office_details + "&luggageobject=" + obj + "&listviasaddress=" + listvias + "&tripFlag=" + TripFlag + "&mints=" + WaitingMints + "&fromDoorNumber=" + frmDrNmbr + "&toDoorNumber=" + toDrNmbr;
       // window.location.href = "http://localhost:52716//OurVehicle/OurVehicle?luggage_text=" + inputsvalues + "&pickup=" + pickup + "&checkurl=" + true + "&dropoff=" + dropoff + "&office_details=" + office_details + "&luggageobject=" + obj + "&listviasaddress=" + listvias + "&tripFlag=" + TripFlag + "&mints=" + WaitingMints + "&fromDoorNumber=" + frmDrNmbr + "&toDoorNumber=" + toDrNmbr +"&showVehicle="+isContains;
       window.location.href =
-        "https://booking.taxisnetwork.com/OurVehicle/OurVehicle?luggage_text=" +
+        "https://booking.londontaxi247.co.uk/OurVehicle/OurVehicle?luggage_text=" +
         inputsvalues +
         "&pickup=" +
         pickup +
@@ -542,7 +520,9 @@ $(document).ready(function () {
         "&toDoorNumber=" +
         toDrNmbr +
         "&showVehicle=" +
-        isContains;
+        isContains +
+        "&colorCode=" +
+        color_code;
 
       $(window).bind("pageshow", function (event) {
         $(".loading-div").css("display", "none");
@@ -560,7 +540,7 @@ $(document).ready(function () {
 $("#pickup").select2({
   placeholder: "Select pickup address",
   ajax: {
-    url: "https://booking.taxisnetwork.com/Home/Indextwo",
+    url: "https://booking.londontaxi247.co.uk/Home/Indextwo",
 
     data: function (data) {
       return {
@@ -580,7 +560,7 @@ $("#pickup").select2({
 $("#dropof").select2({
   placeholder: "Select dropoff address",
   ajax: {
-    url: "https://booking.taxisnetwork.com/Home/Indextwo",
+    url: "https://booking.londontaxi247.co.uk/Home/Indextwo",
 
     data: function (data) {
       return {

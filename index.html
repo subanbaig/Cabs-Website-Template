@@ -107,14 +107,16 @@
                     </div>
                     <!-- Form  -->
                     <div class="col-12 form">
-                        <div class="bannerForm ">
+                        <div class="bannerForm container">
                             <div class="bannerFormBody">
-                                <div class="">
-                                    <div class="row m-0">
+                                <div class="container">
+                                    <div class="row ">
                                         <div class="col-lg-5 col-md-6 col-12 order-lg-1">
+                                            <div class="field-hd">
+                                                <span>Pick Up</span>
+                                            </div>
                                             <div class="field field-a cusField">
-                                                <select title="Pickup" id="pickup"
-                                                    class="ui-autocomplete-input my-input" name="name"
+                                                <select id="pickup" class="ui-autocomplete-input my-input" name="name"
                                                     autocomplete="off"></select>
                                                 <div class="dropdown airportList" id="dropdown1">
                                                     <button class="btn btn-default airportListModal" type="button"
@@ -127,26 +129,35 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-5 col-md-6 col-12 order-lg-5">
+                                            <div class="field-hd">
+                                                <span>From</span>
+                                            </div>
                                             <div class="field my-field field-a">
                                                 <input id="book_pick_from_doorno" type="text" name="name"
                                                     placeholder="Door No. For Pick Up" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-12 col-12 order-lg-2">
+                                            <div class="field-hd">
+                                                <span>Via</span>
+                                            </div>
                                             <div class="field-mini field-a" data-toggle="modal"
-                                                data-target="#myModalvias">
+                                                data-target="#myModalvias" id="cusVias">
                                                 <input id="via" type="text" name="name" placeholder="Via (Optional)"
                                                     disabled="">
                                                 <button>
-                                                    <img loading="lazy" class="form-icon" src="./assets/images/plus.png"
+                                                    <img loading="lazy" class="form-icon" src="assets/images/plus.png"
                                                         alt="plus-icon" width="25" height="25">
                                                 </button>
                                             </div>
                                         </div>
                                         <div class="col-lg-5 col-md-6 col-12 order-lg-3">
+                                            <div class="field-hd">
+                                                <span>Destination</span>
+                                            </div>
                                             <div class="field field-a cusField">
-                                                <select title="Drop" id="dropof" class="ui-autocomplete-input my-input"
-                                                    name="name" autocomplete="off"></select>
+                                                <select id="dropof" class="ui-autocomplete-input my-input" name="name"
+                                                    autocomplete="off"></select>
                                                 <div class="dropdown airportList" id="dropdown2">
                                                     <button class="btn btn-default airportListModal" type="button"
                                                         id="dropdownMenu2" data-toggle="modal"
@@ -157,36 +168,42 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-6 col-12 order-lg-6" id="tablet">
-                                            <!-- <div class="field field-a">
-                                                <input id="book_pick_to_doorno" type="text" name="name"
-                                                    placeholder="Door No. For Drop Off" autocomplete="off">
-                                            </div> -->
-                                        </div>
+                                        <div class="col-lg-2 col-md-6 col-12 order-lg-6" id="tablet"></div>
                                         <div class="col-lg-5 col-md-6 col-12 order-lg-7">
+                                            <div class="field-hd">
+                                                <span>To</span>
+                                            </div>
                                             <div class="field field-a">
                                                 <input id="book_pick_to_doorno" type="text" name="name"
                                                     placeholder="Door No. For Drop Off" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-6 col-6 order-lg-8">
+                                            <div class="field-hd">
+                                                <span>Date</span>
+                                            </div>
                                             <div class="datefield field-a">
-                                                <input title="Pickup Date" id="book_pick_date" type="date"
-                                                    name="date-1">
+                                                <input id="book_pick_date" title="Pick Date" type="date" name="date-1">
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-6 col-6 order-lg-7">
+                                            <div class="field-hd">
+                                                <span>Time</span>
+                                            </div>
                                             <div class="timefield field-a">
-                                                <input title="Pickup Time" id="book_pick_time" type="Time" name="appt">
+                                                <input id="book_pick_time" title="Pick Time" type="Time" name="appt">
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-4 col-6 order-lg-9">
+                                            <div class="field-hd">
+                                                <span>Passenger</span>
+                                            </div>
                                             <div class="field-mini mini2 field-a cusSelect">
                                                 <button>
-                                                    <img loading="lazy" src="./assets/images/people.png"
-                                                        alt="people-icon" width="24" height="24">
+                                                    <img loading="lazy" src="assets/images/people.png" alt="people-icon"
+                                                        width="24" height="24">
                                                 </button>
-                                                <select title="Passenger" id="Passenger">
+                                                <select id="Passenger" title="Single Trip">
                                                     <option selected="" value="1">1 Passenger</option>
                                                     <script>
                                                         for (var i = 2; i <= 200; i++) {
@@ -197,10 +214,13 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-4 col-6 order-lg-10">
+                                            <div class="field-hd">
+                                                <span>Items</span>
+                                            </div>
                                             <div class="field-mini mini2 itemfield field-a">
                                                 <button>
                                                     <img loading="lazy" src="assets/images/luggage.png"
-                                                        alt="luggage-icon" width="24" height="24">
+                                                        alt="Luggage icon" width="24" height="24">
                                                 </button>
                                                 <input type="text" name="name" placeholder="Add Items"
                                                     autocomplete="off" data-toggle="modal" data-target="#moreModalitem"
@@ -208,9 +228,12 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-4 col-12 order-lg-11">
+                                            <div class="field-hd">
+                                                <span>Trip</span>
+                                            </div>
                                             <div class="selectfield field-a cusSelect">
-                                                <select title="Journey Type" id="journeytype"
-                                                    onchange="iswaitnreturn(this)">
+                                                <select id="journeytype" title="Single Trip"
+                                                    onchange="iswaitnreturn(this)" style="height: 50px;">
                                                     <option>Single Trip</option>
                                                     <option value="WR">Wait and Return</option>
                                                 </select>
@@ -218,13 +241,12 @@
                                         </div>
                                         <div class="col-12 cus-hold-able-wrapper">
                                             <div class="hold-able">
-                                                <div id="holdabledata" class="row justify-content-center">
-                                                </div>
+                                                <div id="holdabledata" class="row justify-content-center"></div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-12 m-auto order-lg-12">
                                             <div class="submitbtn">
-                                                <button id="get-quotes" class="btnStyle">Get Quotes</button>
+                                                <button id="get-quotes" class="myBtn">Get Quotes</button>
                                             </div>
                                         </div>
                                     </div>
@@ -548,7 +570,7 @@
                     <div class="modal-header">
                         <h2 class="modal-title">Airports</h2>
                         <button type="button" class="close close-luggage" data-dismiss="modal">
-                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                            <img src="assets/images/close.png" alt="closeIcon">
                         </button>
                     </div>
 
@@ -569,7 +591,8 @@
                             <button class="btn airportBtn" data-value="LONDON GATWICK AIRPORT SOUTH TERMINAL  | RH6 0NP"
                                 data-dismiss="modal">GATWICK SOUTH TERMINAL</button>
                             <button class="btn airportBtn" data-value="LONDON CITY AIRPORT | E16 2PX"
-                                data-dismiss="modal">LONDON CITY</button>
+                                data-dismiss="modal">LONDON
+                                CITY</button>
                             <button class="btn airportBtn" data-value="LONDON STANSTED AIRPORT | CM24 1RW"
                                 data-dismiss="modal">STANSTED</button>
                             <button class="btn airportBtn" data-value="LONDON LUTON AIRPORT | LU2 9QT"
@@ -592,7 +615,7 @@
                     <div class="modal-header">
                         <h2 class="modal-title">Airports</h2>
                         <button type="button" class="close close-luggage" data-dismiss="modal">
-                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                            <img src="assets/images/plus.png" alt="closeIcon">
                         </button>
                     </div>
 
@@ -613,7 +636,8 @@
                             <button class="btn airportBtn" data-value="LONDON GATWICK AIRPORT SOUTH TERMINAL  | RH6 0NP"
                                 data-dismiss="modal">GATWICK SOUTH TERMINAL</button>
                             <button class="btn airportBtn" data-value="LONDON CITY AIRPORT | E16 2PX"
-                                data-dismiss="modal">LONDON CITY</button>
+                                data-dismiss="modal">LONDON
+                                CITY</button>
                             <button class="btn airportBtn" data-value="LONDON STANSTED AIRPORT | CM24 1RW"
                                 data-dismiss="modal">STANSTED</button>
                             <button class="btn airportBtn" data-value="LONDON LUTON AIRPORT | LU2 9QT"
@@ -630,26 +654,21 @@
         </div>
         <!-- Modal -->
         <div class="modal fade " id="myModalvias" tabindex="-1" role="dialog" aria-labelledby="myModalvias"
-            data-backdrop="static" data-keyboard="false" aria-hidden="true" style="padding:0px">
+            data-backdrop="static" data-keyboard="false" style="padding:0px">
             <div class="modal-dialog " style="display: flex;justify-content: center;align-items: center;height: 100%;">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title">Add Vias</h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                        <button id="add-via" type="button" class="btn custom-btn-2" style="font-weight: bold;">Add via
+                            <img src="assets/images/plus.png" alt="Plus Icon"></button>
+                        <button type="button" class="close" data-dismiss="modal" id="cusCloseModal">
+                            <img src="assets/images/close.png" alt="closeIcon">
                         </button>
                     </div>
                     <div class="modal-body">
-                        <table class="table custom-tables">
-                            <tbody id="via-list"></tbody>
-                        </table>
-                        <button id="add-via" type="button" class="btn custom-btn-2" style="font-weight: bold;">Add
-                            another
-                            via</button>
+                        <div id="via-list"></div>
                     </div>
                     <div class="modal-footer">
-                        <button id="updateVia" type="button" class="btn custom-btn-2 btn-default"
-                            data-dismiss="modal">save</button>
+                        <button id="updateVia" type="button" class="btn custom-btn-2 btn-default">save</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -719,7 +738,7 @@
                     <div class="modal-header">
                         <h2 class="modal-title">Select More Items</h2>
                         <button type="button" class="close close-luggage" data-dismiss="modal">
-                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                            <img src="assets/images/close.png" alt="closeIcon">
                         </button>
                     </div>
 
@@ -749,7 +768,7 @@
                     <div class="modal-header">
                         <h2 class="modal-title">Enter Quantity</h2>
                         <button type="button" class="close close-luggage" data-dismiss="modal">
-                            <img loading="lazy" src="assets/images/close.png" alt="closeIcon">
+                            <img src="assets/images/close.png" alt="closeIcon">
                         </button>
                     </div>
 
